@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Recent posts | Kajabi Support</title>
+    <description>posts</description>
+    <link>http://support.kajabi.com/posts</link>
+    <language>en-us</language>
+    <ttl>60</ttl>
+    <atom:link href="support.kajabi.com/categories/3610-knowledge-base/posts.rss" rel="self" type="application/rss+xml"/>
+  </channel>
+</rss>
