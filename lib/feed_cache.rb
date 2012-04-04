@@ -2,6 +2,8 @@ module FeedCache
   DEFAULT_ENTRIES_LIMIT = 10
   DEFAULT_EXPIRES_IN = 900
 
+  class MissingEntries < StandardError; end
+
   class << self
     attr_accessor :cache
     attr_writer :default_entries_limit, :default_expires_in
@@ -28,8 +30,12 @@ module FeedCache
 
   def self.entries_for(url, options = {})
     limit = options.delete(:limit) || default_entries_limit
-    feed = fetch(url, options)
-    (feed ? feed.entries : []).take(limit)
+    begin
+      feed = fetch(url, options)
+      (feed ? feed.entries : []).take(limit)
+    rescue TypeError
+      raise FeedCache::MissingEntries
+    end
   end
 end
 
